@@ -8,17 +8,35 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "eslint -c eslint.config.js . --max-warnings 0",
-		"lint:fix": "eslint --fix ./**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,json}",
+		"lint:fix": "eslint --fix ./**/*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,json,astro}",
+		"stylelint": "stylelint ./**/*.{css,scss} --allow-empty-input",
+		"stylelint:fix": "stylelint --fix ./**/*.{css,scss} --allow-empty-input",
 		"prettier": "prettier . --check",
 		"prettier:fix": "prettier . --write",
 		"lint-md": "markdownlint-cli2 --config \".markdownlint-cli2.jsonc\" **/*.md \"#node_modules\"",
 		"lint-md:fix": "markdownlint-cli2 --config \".markdownlint-cli2.jsonc\" --fix **/*.md \"#node_modules\"",
 		"check-for-dupes": "jscpd ./",
 		"test:performance": "lighthouse http://localhost:4173/ --view --output html --output-path ./lighthouse-report/lighthouse-report.html",
-		"prepare": "husky"
+		"prepare": "husky || true"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/GaleedGutierrez/Curso-de-Creacion-de-Paginas-Web-con-Astro.git"
+	},
+	"keywords": [
+		"astro",
+		"tailwind"
+	],
+	"author": "Galeed Gutierrez <galeedeveloper@gmail.com> (https://galeedgutierrez.com/)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/GaleedGutierrez/Curso-de-Creacion-de-Paginas-Web-con-Astro/issues"
+	},
+	"homepage": "https://github.com/GaleedGutierrez/Curso-de-Creacion-de-Paginas-Web-con-Astro#readme",
 	"dependencies": {
-		"astro": "^5.4.2"
+		"@tailwindcss/vite": "^4.0.10",
+		"astro": "^5.4.2",
+		"tailwindcss": "^4.0.10"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.7.1",
@@ -53,6 +71,10 @@
 		"prettier": "^3.5.3",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-tailwindcss": "^0.6.11",
+		"stylelint": "^16.15.0",
+		"stylelint-config-standard": "^37.0.0",
+		"stylelint-order": "^6.0.4",
+		"stylelint-prettier": "^5.0.3",
 		"typescript-eslint": "^8.26.0"
 	},
 	"prettier": {
@@ -78,6 +100,7 @@
 	},
 	"lint-staged": {
 		"*.(j|t)s": "npm run lint:fix",
+		"*{css,s(a|c)ss}": "npm run stylelint:fix",
 		"*.md": "npm run lint-md:fix"
 	},
 	"jscpd": {
