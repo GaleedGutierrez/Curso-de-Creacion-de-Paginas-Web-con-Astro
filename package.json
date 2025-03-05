@@ -11,6 +11,8 @@
 		"prettier:fix": "prettier . --write",
 		"lint-md": "markdownlint-cli2 --config \".markdownlint-cli2.jsonc\" **/*.md \"#node_modules\"",
 		"lint-md:fix": "markdownlint-cli2 --config \".markdownlint-cli2.jsonc\" --fix **/*.md \"#node_modules\"",
+		"check-for-dupes": "jscpd ./",
+		"test:performance": "lighthouse http://localhost:4173/ --view --output html --output-path ./lighthouse-report/lighthouse-report.html",
 		"prepare": "husky"
 	},
 	"dependencies": {
@@ -20,6 +22,7 @@
 		"@commitlint/cli": "^19.7.1",
 		"@commitlint/config-conventional": "^19.7.1",
 		"husky": "^9.1.7",
+		"jscpd": "^4.0.5",
 		"markdownlint-cli2": "^0.17.2",
 		"prettier": "^3.5.3",
 		"prettier-plugin-astro": "^0.14.1",
