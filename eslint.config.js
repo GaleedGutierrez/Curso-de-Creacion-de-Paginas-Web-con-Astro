@@ -2,6 +2,7 @@
 import js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import vitest from '@vitest/eslint-plugin';
+import eslintPluginAstro from 'eslint-plugin-astro';
 import checkFile from 'eslint-plugin-check-file';
 import eslintPluginImportX from 'eslint-plugin-import-x';
 import jsdoc from 'eslint-plugin-jsdoc';
@@ -17,7 +18,7 @@ import pluginSecurity from 'eslint-plugin-security';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import sortClassMembers from 'eslint-plugin-sort-class-members';
 import tsdoc from 'eslint-plugin-tsdoc';
-import unicorn from 'eslint-plugin-unicorn';
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import {
@@ -28,12 +29,13 @@ import {
 // const compat = new FlatCompat();
 
 export default tsEslintConfig(
-	unicorn.configs['flat/recommended'],
 	eslintPluginImportX.flatConfigs.recommended,
 	eslintPluginImportX.flatConfigs.typescript,
 
 	pluginSecurity.configs.recommended,
 	jsxA11y.flatConfigs.recommended,
+	// eslint-disable-next-line import-x/no-named-as-default-member
+	...eslintPluginAstro.configs.all,
 	eslintPluginPrettierRecommended,
 	...eslintPluginJsonc.configs['flat/recommended-with-jsonc'],
 	...eslintPluginJsonc.configs['flat/prettier'],
@@ -59,6 +61,7 @@ export default tsEslintConfig(
 			'unused-imports': unusedImports,
 			'check-file': checkFile,
 			'@stylistic': stylistic,
+			unicorn: eslintPluginUnicorn,
 		},
 
 		languageOptions: {
@@ -72,7 +75,7 @@ export default tsEslintConfig(
 			},
 
 			parserOptions: {
-				projectService: true,
+				project: true,
 				tsconfigRootDir: import.meta.dirname,
 				ecmaFeatures: {
 					jsx: true,
