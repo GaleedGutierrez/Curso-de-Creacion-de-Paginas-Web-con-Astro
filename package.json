@@ -9,6 +9,8 @@
 		"astro": "astro",
 		"prettier": "prettier . --check",
 		"prettier:fix": "prettier . --write",
+		"lint-md": "markdownlint-cli2 --config \".markdownlint-cli2.jsonc\" **/*.md \"#node_modules\"",
+		"lint-md:fix": "markdownlint-cli2 --config \".markdownlint-cli2.jsonc\" --fix **/*.md \"#node_modules\"",
 		"prepare": "husky"
 	},
 	"dependencies": {
@@ -18,6 +20,7 @@
 		"@commitlint/cli": "^19.7.1",
 		"@commitlint/config-conventional": "^19.7.1",
 		"husky": "^9.1.7",
+		"markdownlint-cli2": "^0.17.2",
 		"prettier": "^3.5.3",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-tailwindcss": "^0.6.11"
