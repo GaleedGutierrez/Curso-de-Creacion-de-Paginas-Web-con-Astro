@@ -50,6 +50,7 @@ export default tsEslintConfig(
 			'**/playwright-report/**',
 			'**/test-results/**',
 			'**/lighthouse-report/**',
+			'**/.astro/**',
 			'.markdownlint-cli2.jsonc',
 		],
 	},

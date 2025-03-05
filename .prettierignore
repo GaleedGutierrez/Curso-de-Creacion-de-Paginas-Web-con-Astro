@@ -2,6 +2,7 @@
 /dist/*
 /build/*
 /node_modules/*
+/.astro/*
 /**/*.bundle.js
 /**/index.bundle.*.js
 /**/googleAnalytics.js

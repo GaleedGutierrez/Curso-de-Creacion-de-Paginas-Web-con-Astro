@@ -118,6 +118,7 @@
 			"**/playwright-reports/**",
 			"**/test-results/**",
 			"**/lighthouse-report/**",
+			"**/.astro/**",
 			"**/tsconfig.*.json"
 		],
 		"absolute": true
