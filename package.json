@@ -1,20 +1,70 @@
 {
-  "name": "curso-de-creacion-de-paginas-web-con-astro",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "astro": "^5.4.2"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
-    "husky": "^9.1.7"
-  }
+	"name": "curso-de-creacion-de-paginas-web-con-astro",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"prettier": "prettier . --check",
+		"prettier:fix": "prettier . --write",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"astro": "^5.4.2"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^19.7.1",
+		"@commitlint/config-conventional": "^19.7.1",
+		"husky": "^9.1.7",
+		"prettier": "^3.5.3",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-tailwindcss": "^0.6.11"
+	},
+	"prettier": {
+		"plugins": [
+			"prettier-plugin-tailwindcss",
+			"prettier-plugin-astro"
+		],
+		"overrides": [
+			{
+				"files": "*.jsonc",
+				"options": {
+					"trailingComma": "none"
+				}
+			},
+			{
+				"files": "*.astro",
+				"options": {
+					"parser": "astro"
+				}
+			}
+		],
+		"singleAttributePerLine": true
+	},
+	"lint-staged": {
+		"*.(j|t)s": "npm run lint:fix",
+		"*{css,s(a|c)ss}": "npm run stylelint:fix",
+		"*.md": "npm run lint-md:fix"
+	},
+	"jscpd": {
+		"threshold": 3.5,
+		"reporters": [
+			"consoleFull"
+		],
+		"ignore": [
+			"**/node_modules/**",
+			"**/dist/**",
+			"**/dist-dev/**",
+			"**/build/**",
+			"**/fonts/**",
+			"**/coverage/**",
+			"**/playwright-reports/**",
+			"**/test-results/**",
+			"**/lighthouse-report/**",
+			"**/tsconfig.*.json"
+		],
+		"absolute": true
+	}
 }
